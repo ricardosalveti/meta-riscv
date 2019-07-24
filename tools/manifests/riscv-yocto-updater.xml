@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<manifest>
+  <include name="tools/manifests/riscv-yocto.xml" />
+
+  <remote name="ats" fetch="git://github.com/advancedtelematic/" />
+  <remote name="rsalveti" fetch="git://github.com/ricardosalveti/" />
+
+  <project name="meta-updater" remote="ats" path="meta-updater" revision="master" />
+  <project name="meta-updater-riscv" remote="rsalveti" path="meta-updater-riscv" revision="master" />
+
+</manifest>
+
