@@ -44,6 +44,9 @@ bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia
 bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-openembedded/meta-filesystems
+bitbake-layers add-layer ../meta-updater
+bitbake-layers add-layer ../meta-updater-riscv
 bitbake-layers add-layer ../meta-riscv
 
 # fix the configuration
@@ -76,6 +79,13 @@ DISTRO_FEATURES_append = " largefile opengl ptest multiarch wayland pam  systemd
 DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 HOSTTOOLS_NONFATAL_append = " ssh"
+
+# Changes for meta-updater compatibility
+INHERIT += "sota"
+DISTRO_FEATURES_append = " sota usrmerge"
+
+## Common settings
+SOTA_CLIENT_PROV ?= ""
 EOF
 
 echo "To build an image run"
